@@ -7,7 +7,7 @@ def request_data(database):
     grade_3 = float(input("Enter the studant's third grade: "))
     average = round(float((grade_1 + grade_2 + grade_3)/3), 2)
     
-    studant = {
+    student = {
         "Name": full_name,
         "Grade 1": grade_1,
         "Grade 2": grade_2,
@@ -15,6 +15,6 @@ def request_data(database):
         "Average": average
     }
     
-    database.append(studant)
+    database.append(student)
     
     return database
