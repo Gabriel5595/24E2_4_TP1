@@ -2,7 +2,7 @@ from tabulate import tabulate
 
 def search_student(database):
     while True:
-            print("Would you like to search by Student ID or Full Name?")
+            print("Would you like to search by student ID or Full Name?")
             option = int(input("1) student ID.\n2) Full Name.\n"))
             
             if option == 1:
@@ -14,7 +14,7 @@ def search_student(database):
                     return None
                 else:
                     print(tabulate([database[student_id]], headers="keys", tablefmt="grid"))
-                    return database[student_id]
+                    return student_id
             
             elif option == 2:
                 student_name = input("Please, enter the student's full name: ")
@@ -22,7 +22,7 @@ def search_student(database):
                 for data in database:
                     if data["Nome Completo"] == student_name:
                         print(tabulate([data], headers="keys", tablefmt="grid"))
-                        return data
+                        return database.index(data)
                 
                 print("student not found.\n")
                 return None

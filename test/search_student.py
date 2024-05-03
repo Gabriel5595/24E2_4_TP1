@@ -14,22 +14,7 @@ def search_student(database):
                     return None
                 else:
                     print(tabulate([database[student_id]], headers="keys", tablefmt="grid"))
-                    return database[student_id]
-                    # print(f"The selected student is {database[student_id]}")
-                    # new_grade_1 = round(float(input("Please enter the student's new first grade: ")), 2)
-                    # new_grade_2 = round(float(input("Please enter the student's new second grade: ")), 2)
-                    # new_grade_3 = round(float(input("Please enter the student's new third grade: ")), 2)
-                    # new_average = round(float((new_grade_1 + new_grade_2 + new_grade_3) / 3))
-                    
-                    # database[student_id]["Nota 1"] = new_grade_1
-                    # database[student_id]["Nota 2"] = new_grade_2
-                    # database[student_id]["Nota 3"] = new_grade_3
-                    # database[student_id]["Média"] = new_average
-                    
-                    # print("student's new info:")
-                    # print(tabulate([database[student_id]], headers="keys", tablefmt="grid"))
-                    
-                    # return database
+                    return student_id
             
             elif option == 2:
                 student_name = input("Please, enter the student's full name: ")
@@ -37,23 +22,7 @@ def search_student(database):
                 for data in database:
                     if data["Nome Completo"] == student_name:
                         print(tabulate([data], headers="keys", tablefmt="grid"))
-                        return data
-                        # print(f"The selected student is {data}")
-                        
-                        # new_grade_1 = round(float(input("Please enter the student's new first grade: ")), 2)
-                        # new_grade_2 = round(float(input("Please enter the student's new second grade: ")), 2)
-                        # new_grade_3 = round(float(input("Please enter the student's new third grade: ")), 2)
-                        # new_average = round(float((new_grade_1 + new_grade_2 + new_grade_3) / 3))
-                        
-                        # data["Nota 1"] = new_grade_1
-                        # data["Nota 2"] = new_grade_2
-                        # data["Nota 3"] = new_grade_3
-                        # data["Média"] = new_average
-                        
-                        # print("student's new info:")
-                        # print(tabulate([data], headers="keys", tablefmt="grid"))
-                        
-                        # return database
+                        return database.index(data)
                 
                 print("student not found.\n")
                 return None
@@ -85,7 +54,7 @@ def main():
     {"Nome Completo": "Inês Ferreira", "Nota 1": 5.75, "Nota 2": 6.25, "Nota 3": 7.50, "Média": 6.50}
 ]
     
-    database = search_student(database)
-    
+    student_index = search_student(database)
+    print(student_index)
 
 main()
